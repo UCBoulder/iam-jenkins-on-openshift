@@ -15,7 +15,7 @@ RUN chmod 755 /usr/local/bin/run.sh
 
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
-    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.319.1/jenkins.war
+    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.319.3/jenkins.war
     
 
 VOLUME ["/var/lib/jenkins"]

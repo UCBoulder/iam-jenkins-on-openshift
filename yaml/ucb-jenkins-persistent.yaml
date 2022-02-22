@@ -80,7 +80,21 @@
 					"name": "${JENKINS_SERVICE_NAME}"
 				},
 				"strategy": {
-					"type": "Recreate"
+					"type": "Recreate",
+					 "recreateParams": {
+					   "timeoutSeconds": 600
+					 },
+					 "resources": {
+					   "limits": {
+                                            "cpu": "300m",
+                                            "memory": "256Mi"
+                                          },
+                                          "requests": {
+                                            "cpu": "0",
+                                            "memory": "0"
+                                          }
+                                        },
+                                        "activeDeadlineSeconds": 21600
 				},
 				"template": {
 					"metadata": {
@@ -157,7 +171,13 @@
 								},
 								"resources": {
 									"limits": {
-										"memory": "${MEMORY_LIMIT}"
+										"memory": "${MEMORY_LIMIT}",
+										"cpu": "1500m",
+										"memory": "3Gi"
+									},
+									"requests": {
+                                                                                "cpu": "1",
+										"memory": "1500Mi"
 									}
 								},
 								"securityContext": {
