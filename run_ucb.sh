@@ -610,5 +610,10 @@ if [[ $# -lt 1 ]] || [[ "$1" == "--"* ]]; then
             -jar /usr/lib/jenkins/jenkins.war $JENKINS_OPTS "$@"
 fi
 
+if [ -f /var/lib/jenkins/.ssh/iamadmin-ssh.rsa ]; then
+  echo "Changing the permissions for the private key file"
+  chmod 600 /var/lib/jenkins/.ssh/iamadmin-ssh.rsa
+fi
+
 # As argument is not jenkins, assume user want to run his own process, for sample a `bash` shell to explore this image
 exec "$@"
