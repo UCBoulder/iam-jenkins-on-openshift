@@ -10,12 +10,11 @@ COPY run_ucb.sh /usr/local/bin/run.sh
 RUN cp -p /usr/libexec/s2i/run /usr/libexec/s2i/run.orig
 RUN rm -f /usr/libexec/s2i/run
 COPY run_ucb.sh /usr/libexec/s2i/run
-RUN chmod 755 /usr/libexec/s2i/run
-RUN chmod 755 /usr/local/bin/run.sh
+RUN chmod 755 /usr/libexec/s2i/run && chmod 755 /usr/local/bin/run.sh
 
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
-    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.346.3/jenkins.war
+    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.361.1/jenkins.war
     
 
 VOLUME ["/var/lib/jenkins"]
