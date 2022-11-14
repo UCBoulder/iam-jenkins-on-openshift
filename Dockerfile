@@ -6,7 +6,7 @@ FROM quay.io/openshift/origin-jenkins:latest as jenkins
 
 USER root
 #RUN yum install -y jenkins-plugin-openshift openshift-origin-cartridge-jenkins
-RUN yum update -y
+#RUN yum update -y
 COPY run_ucb.sh /usr/local/bin/run.sh
 RUN cp -p /usr/libexec/s2i/run /usr/libexec/s2i/run.orig
 RUN rm -f /usr/libexec/s2i/run
