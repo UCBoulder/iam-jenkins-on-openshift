@@ -12,6 +12,9 @@ RUN cp -p /usr/libexec/s2i/run /usr/libexec/s2i/run.orig
 RUN rm -f /usr/libexec/s2i/run
 COPY run_ucb.sh /usr/libexec/s2i/run
 RUN chmod 755 /usr/libexec/s2i/run && chmod 755 /usr/local/bin/run.sh
+# Installing JDKs
+RUN mkdir -p /data/jdk
+ADD https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz /data/jdk/
 
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
