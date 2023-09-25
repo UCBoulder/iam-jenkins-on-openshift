@@ -16,7 +16,6 @@ RUN chmod 755 /usr/libexec/s2i/run && chmod 755 /usr/local/bin/run.sh
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
     wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.414.2/jenkins.war
-RUN yum -y install java-17-openjdk
     
 
 VOLUME ["/var/lib/jenkins"]
