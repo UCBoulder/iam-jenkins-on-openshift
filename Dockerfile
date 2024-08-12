@@ -2,7 +2,7 @@
 #FROM quay.io/openshift/origin-jenkins@sha256:a7c28e11e20139e69b1a39e0c63a440d7d973f1058fda5e1b862ad7cf937410b as jenkins
 FROM quay.io/openshift/origin-jenkins:latest as jenkins
 
-ARG JENKINS_VERSION=2.452.1
+ARG JENKINS_VERSION=2.462.1
 
 USER root
 #RUN yum install -y jenkins-plugin-openshift openshift-origin-cartridge-jenkins
@@ -19,7 +19,7 @@ RUN chmod -R 777 /data/jdk
 
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
-    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.452.3/jenkins.war
+    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.462.1/jenkins.war
     
 
 VOLUME ["/var/lib/jenkins"]
