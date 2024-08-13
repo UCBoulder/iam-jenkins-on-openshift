@@ -24,6 +24,7 @@ RUN chmod 755 /usr/libexec/s2i/run && chmod 755 /usr/local/bin/run.sh
 # Install Corretto Java JDK (from Amazon repo, more arch independent)
 RUN rpm -i https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.rpm
 ENV JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto
+RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-amazon-corretto/bin/java 1
 
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
