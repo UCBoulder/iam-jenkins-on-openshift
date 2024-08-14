@@ -20,7 +20,7 @@ RUN chmod 755 /usr/libexec/s2i/run && chmod 755 /usr/local/bin/run.sh
 RUN mkdir -p /usr/lib/jvm
 RUN cd /usr/lib/jvm && wget --quiet --no-check-certificate https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz && tar -zxvf jdk-17_linux-x64_bin.tar.gz && rm -f jdk-17_linux-x64_bin.tar.gz && ln -s jdk-17* jdk-17 && ln -s jdk-17 jdk-17-latest
 RUN chmod -R 777 /usr/lib/jvm
-RUN update-alternatives --install /usr/lib/java java /usr/lib/jvm/jdk-17/bin/java 100
+RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 1
 
 # Install Corretto Java JDK (from Amazon repo, more arch independent)
 #RUN rpm -i https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.rpm
