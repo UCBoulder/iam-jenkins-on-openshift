@@ -275,6 +275,7 @@ CONTAINER_MEMORY_IN_MB=$((CONTAINER_MEMORY_IN_BYTES/2**20))
 export JAVA_VERSION=${USE_JAVA_VERSION:=java-11}
 
 echo "MARWAN: JAVA_VERSION is  $JAVA_VERSION"
+ls -l /usr/lib/jvm/*
 
 export JAVA_VERSION=${USE_JAVA_VERSION:=java-11} | grep $JAVA_VERSION |
 if [[ "$(uname -m)" == "x86_64" ]]; then
