@@ -25,7 +25,7 @@ RUN chmod 755 /usr/libexec/s2i/run && chmod 755 /usr/local/bin/run.sh
 ### END: Last working config
 
 #RUN mkdir -p /usr/lib/jvm
-RUN cd /usr/lib/jvm && wget --quiet --no-check-certificate https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.tar.gz && tar -zxvf amazon-corretto-17-x64-linux-jdk.tar.gz && rm -f amazon-corretto-17-x64-linux-jdk.tar.gz && ln -s jdk-17* jdk-17 && ln -s jdk-17 jdk-17-latest
+RUN cd /usr/lib/jvm && wget --quiet --no-check-certificate https://corretto.aws/downloads/latest/amazon-corretto-17-x64-linux-jdk.tar.gz && tar -zxvf amazon-corretto-17-x64-linux-jdk.tar.gz && rm -f amazon-corretto-17-x64-linux-jdk.tar.gz && ln -s amazon-corretto-17* jdk-17 && ln -s jdk-17 jdk-17-latest
 RUN chmod -R 777 /usr/lib/jvm
 RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 1
 
