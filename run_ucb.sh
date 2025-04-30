@@ -274,6 +274,8 @@ CONTAINER_MEMORY_IN_MB=$((CONTAINER_MEMORY_IN_BYTES/2**20))
 
 export JAVA_VERSION=${USE_JAVA_VERSION:=java-11}
 
+echo "MARWAN: JAVA_VERSION is  $JAVA_VERSION"
+
 export JAVA_VERSION=${USE_JAVA_VERSION:=java-11} | grep $JAVA_VERSION |
 if [[ "$(uname -m)" == "x86_64" ]]; then
 	# alternatives --set java $(alternatives --display java | grep $JAVA_VERSION | awk '/family.*x86_64/ { print $1; }')
@@ -284,6 +286,9 @@ else
   alternatives --set java $(alternatives --display java | grep $JAVA_VERSION | awk '/family.*'$(uname -m)'/ { print $1; }')
   alternatives --set javac $(alternatives --display javac | grep $JAVA_VERSION | awk '/family.*'$(uname -m)'/ { print $1; }')
 fi
+
+echo "MARWAN: alternatives -- list is"
+alternatives --list
 
 echo "CONTAINER_MEMORY_IN_MB='${CONTAINER_MEMORY_IN_MB}', using $(readlink /etc/alternatives/java) and $(readlink /etc/alternatives/javac)"
 
