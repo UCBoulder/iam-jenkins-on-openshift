@@ -18,7 +18,7 @@ RUN chmod 755 /usr/libexec/s2i/run && chmod 755 /usr/local/bin/run.sh
 #RUN chmod -R 777 /data/jdk
 
 RUN mkdir -p /usr/lib/jvm
-RUN cd /usr/lib/jvm && wget --quiet --no-check-certificate https://download.oracle.com/java/24/latest/jdk-24_linux-x64_bin.tar.gz && tar -zxvf jdk-24_linux-x64_bin.tar.gz && rm -f jdk-24_linux-x64_bin.tar.gz && ln -s jdk-24* jdk-17 && ln -s jdk-24 jdk-24-latest
+RUN cd /usr/lib/jvm && wget --quiet --no-check-certificate https://download.oracle.com/java/24/latest/jdk-24_linux-x64_bin.tar.gz && tar -zxvf jdk-24_linux-x64_bin.tar.gz && rm -f jdk-24_linux-x64_bin.tar.gz && ln -s jdk-24* jdk-24 && ln -s jdk-24 jdk-24-latest
 RUN chmod -R 777 /usr/lib/jvm
 RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-24/bin/java 1
 
