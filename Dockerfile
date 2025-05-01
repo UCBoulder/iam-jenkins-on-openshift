@@ -35,10 +35,13 @@ RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/jav
 
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
-    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.462.2/jenkins.war
+    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.479.2/jenkins.war
     
 
 VOLUME ["/var/lib/jenkins"]
+
+RUN cp ldap.hpi /var/lib/jenkins/plugins/ldap.jpi
+RUN chmod 777 /var/lib/jenkins/plugins/ldap.jpi
 
 USER 1001
 CMD /usr/local/bin/run.sh
