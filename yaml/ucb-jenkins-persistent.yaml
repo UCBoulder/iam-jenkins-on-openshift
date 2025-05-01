@@ -67,7 +67,7 @@
 		},
 		{
 			"apiVersion": "v1",
-			"kind": "Deployment",
+			"kind": "DeploymentConfig",
 			"metadata": {
 				"annotations": {
 					"template.alpha.openshift.io/wait-for-ready": "true"
