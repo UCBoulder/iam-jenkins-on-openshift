@@ -12,7 +12,7 @@ RUN cp -p /usr/libexec/s2i/run /usr/libexec/s2i/run.orig
 RUN rm -f /usr/libexec/s2i/run
 COPY run_ucb.sh /usr/libexec/s2i/run
 RUN chmod 755 /usr/libexec/s2i/run && chmod 755 /usr/local/bin/run.sh
-RUN cp ldap.hpi /tmp/ldap.hpi
+COPY ldap.hpi /tmp/ldap.hpi
 # Installing JDKs
 #RUN mkdir -p /data/jdk
 #RUN cd /data/jdk && wget --quiet --no-check-certificate https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz && tar -zxvf jdk-17_linux-x64_bin.tar.gz && rm -f jdk-17_linux-x64_bin.tar.gz && ln -s jdk-17* jdk-17-latest
@@ -34,6 +34,9 @@ RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/jav
 #RUN yum install -y java-17-openjdk-devel
 #RUN yum install -y java-17-openjdk-headless
 
+RUN cp /tmp/ldap.hpi /var/lib/jenkins/plugins/ldap.jpi
+RUN chmod 777 /var/lib/jenkins/plugins/ldap.jpi
+
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
     wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.479.2/jenkins.war
@@ -41,8 +44,6 @@ RUN rm -f jenkins.war && \
 
 VOLUME ["/var/lib/jenkins"]
 
-RUN cp /tmp/ldap.hpi /var/lib/jenkins/plugins/ldap.jpi
-RUN chmod 777 /var/lib/jenkins/plugins/ldap.jpi
 
 USER 1001
 CMD /usr/local/bin/run.sh
