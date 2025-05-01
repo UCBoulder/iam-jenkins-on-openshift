@@ -272,7 +272,15 @@ function get_java_proxy_config() {
 CONTAINER_MEMORY_IN_BYTES=$(cat /sys/fs/cgroup/memory/memory.limit_in_bytes)
 CONTAINER_MEMORY_IN_MB=$((CONTAINER_MEMORY_IN_BYTES/2**20))
 
+echo "BEGIN: MARWAN"
+echo "Marwan"
+java --version
+
 export JAVA_VERSION=${USE_JAVA_VERSION:=java-11}
+echo "MARWAN2"
+java --version
+echo "MARWAN: Alternatives"
+alternatives --list
 
 export JAVA_VERSION=${USE_JAVA_VERSION:=java-11} | grep $JAVA_VERSION |
 if [[ "$(uname -m)" == "x86_64" ]]; then
