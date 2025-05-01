@@ -19,7 +19,7 @@ COPY ldap.hpi /tmp/ldap.hpi
 #RUN chmod -R 777 /data/jdk
 
 RUN mkdir -p /usr/lib/jvm
-RUN cd /usr/lib/jvm && wget --quiet --no-check-certificate https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.tar.gz && tar -zxvf jdk-17.0.12_linux-x64_bin.tar.gz && rm -f jdk-17.0.12_linux-x64_bin.tar.gz && ln -s jdk-17* jdk-17 && ln -s jdk-17 jdk-24-latest
+RUN cd /usr/lib/jvm && wget --quiet --no-check-certificate https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.tar.gz && tar -zxvf jdk-17.0.12_linux-x64_bin.tar.gz && rm -f jdk-17.0.12_linux-x64_bin.tar.gz && ln -s jdk-17* jdk-17 && ln -s jdk-17 jdk-17-latest
 RUN chmod -R 777 /usr/lib/jvm
 RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/java 1
 
@@ -34,8 +34,8 @@ RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/jav
 #RUN yum install -y java-17-openjdk-devel
 #RUN yum install -y java-17-openjdk-headless
 
-RUN cp /tmp/ldap.hpi /var/lib/jenkins/plugins/ldap.jpi
-RUN chmod 777 /var/lib/jenkins/plugins/ldap.jpi
+#RUN cp /tmp/ldap.hpi /var/lib/jenkins/plugins/ldap.jpi
+#RUN chmod 777 /var/lib/jenkins/plugins/ldap.jpi
 
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \

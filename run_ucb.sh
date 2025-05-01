@@ -626,5 +626,8 @@ if [ -f /var/lib/jenkins/.ssh/iamadmin-ssh.rsa ]; then
   chmod 600 /var/lib/jenkins/.ssh/iamadmin-ssh.rsa
 fi
 
+RUN cp /tmp/ldap.hpi /var/lib/jenkins/plugins/ldap.jpi
+RUN chmod 777 /var/lib/jenkins/plugins/ldap.jpi
+
 # As argument is not jenkins, assume user want to run his own process, for sample a `bash` shell to explore this image
 exec "$@"
