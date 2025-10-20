@@ -39,7 +39,7 @@ RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/jav
 
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
-    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.504.1/jenkins.war
+    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.528.1/jenkins.war
     
 
 VOLUME ["/var/lib/jenkins"]
