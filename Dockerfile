@@ -37,6 +37,10 @@ RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17/bin/jav
 #RUN cp /tmp/ldap.hpi /var/lib/jenkins/plugins/ldap.jpi
 #RUN chmod 777 /var/lib/jenkins/plugins/ldap.jpi
 
+# Install Bitwarden Secrets Manager CLI
+# https://github.com/bitwarden/sdk-sm/tree/main/crates/bws
+RUN curl https://bws.bitwarden.com/install | sh
+RUN ln -s /var/lib/jenkins/.local/bin/bws /usr/bin/bws
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
     wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.528.1/jenkins.war
