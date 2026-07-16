@@ -43,7 +43,7 @@ RUN curl https://bws.bitwarden.com/install | sh
 RUN ln -s /var/lib/jenkins/.local/bin/bws /usr/bin/bws
 WORKDIR /usr/lib/jenkins/
 RUN rm -f jenkins.war && \
-    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.528.1/jenkins.war
+    wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.555.3/jenkins.war
     
 
 VOLUME ["/var/lib/jenkins"]
