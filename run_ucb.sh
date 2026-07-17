@@ -612,7 +612,7 @@ JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS $JAVA_HTTP_PROXY_OPTIONS"
 echo "MARWAN: making a copy of /var/lib/jenkins/config.xml to /var/lib/jenkins/config.xml.orig"
 cp -p /var/lib/jenkins/config.xml /var/lib/jenkins/config.xml.orig
 echo "MARWAN: changing the port for the ldap server to 3269"
-sed -i 's/ad-lb.colorado.edu/ad-lb.colorado.edu:3269/g' /var/lib/jenkins/config.xml
+sed -i 's/ad.colorado.edu:3269/ad-lb.colorado.edu:3269/g' /var/lib/jenkins/config.xml
 ### END: Added by shaher 20270717
 # Deal with embedded escaped spaces in JENKINS_JAVA_OVERRIDES.
 # JENKINS_JAVA_OVERRIDES='-Dfoo -Dbar' => append -Dfoo -Dbar to java invocation
