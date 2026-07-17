@@ -273,6 +273,8 @@ CONTAINER_MEMORY_IN_BYTES=$(cat /sys/fs/cgroup/memory.max)
 CONTAINER_MEMORY_IN_MB=$((CONTAINER_MEMORY_IN_BYTES/2**20))
 
 echo "BEGIN: MARWAN"
+echo "Setting JENKINS_JAVA_OPTIONS"
+JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS -Djava.naming.referral=ignore"
 echo "Marwan"
 java --version
 
