@@ -585,6 +585,7 @@ if [[ -z "${JENKINS_JAVA_OPTIONS}" ]]; then
     JENKINS_JAVA_OPTIONS="$JAVA_GC_OPTS $JAVA_INITIAL_HEAP_PARAM $JAVA_MAX_HEAP_PARAM $JAVA_CORE_LIMIT $JAVA_DIAGNOSTICS "
     JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS -Dfile.encoding=UTF8 -Djavamelody.displayed-counters=log,error $JENKINS_ACCESSLOG $FATAL_ERROR_OPTION"
     JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS -Djava.util.logging.config.file=$JENKINS_HOME/logging.properties"
+    JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS -Djava.naming.referral=ignore"
     # Add default truststore if custom ca is loaded under ${JENKINS_HOME}/ca-anchors-keystore
     if [ -f "${JENKINS_HOME}/ca-anchors-keystore" ]; then
       JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS -Djavax.net.ssl.trustStore=${JENKINS_HOME}/ca-anchors-keystore"
