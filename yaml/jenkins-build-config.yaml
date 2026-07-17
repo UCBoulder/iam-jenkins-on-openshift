@@ -11,6 +11,8 @@ spec:
     strategy:
         dockerStrategy:
             dockerfilePath: "Dockerfile"
+            noCache: true
+            forcePull: true
     output:
         to:
             kind: "ImageStreamTag"
