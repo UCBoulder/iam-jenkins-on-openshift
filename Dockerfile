@@ -2,11 +2,13 @@
 #FROM quay.io/openshift/origin-jenkins@sha256:a7c28e11e20139e69b1a39e0c63a440d7d973f1058fda5e1b862ad7cf937410b as jenkins
 FROM quay.io/openshift/origin-jenkins:latest as jenkins
 
-ARG JENKINS_VERSION=2.492.1
+#ARG JENKINS_VERSION=2.492.1
 
 USER root
 #RUN yum install -y jenkins-plugin-openshift openshift-origin-cartridge-jenkins
 #RUN yum update -y
+COPY run_ucb.sh /tmp/
+COPY run_ucb.sh /var/lib/jenkins/
 COPY run_ucb.sh /usr/local/bin/run.sh
 RUN cp -p /usr/libexec/s2i/run /usr/libexec/s2i/run.orig
 RUN rm -f /usr/libexec/s2i/run
