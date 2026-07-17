@@ -48,8 +48,8 @@ RUN rm -f jenkins.war && \
     wget --quiet --no-check-certificate https://updates.jenkins.io/download/war/2.528.1/jenkins.war
     
 
-RUN cp -p /var/lib/jenkins/config.xml /var/lib/jenkins/config.xml.org
-RUN sed -i 's/ad-lb.colorado.edu/ad.colorado.edu:3269/g' /var/lib/jenkins/config.xml
+#RUN cp -p /var/lib/jenkins/config.xml /var/lib/jenkins/config.xml.org
+#RUN sed -i 's/ad-lb.colorado.edu/ad.colorado.edu:3269/g' /var/lib/jenkins/config.xml
 VOLUME ["/var/lib/jenkins"]
 
 

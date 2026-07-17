@@ -608,6 +608,10 @@ fi
 
 JENKINS_JAVA_OPTIONS="$JENKINS_JAVA_OPTIONS $JAVA_HTTP_PROXY_OPTIONS"
 
+### BEGIN: Added by shaher 20270717
+cp -p /var/lib/jenkins/config.xml /var/lib/jenkins/config.xml.orig
+sed -i 's/ad-lb.colorado.edu/ad.colorado.edu:3269/g' /var/lib/jenkins/config.xml
+### END: Added by shaher 20270717
 # Deal with embedded escaped spaces in JENKINS_JAVA_OVERRIDES.
 # JENKINS_JAVA_OVERRIDES='-Dfoo -Dbar' => append -Dfoo -Dbar to java invocation
 # JENKINS_JAVA_OVERRIDES='-Dfoo\ bar' => append '-Dfoo bar' to java invocation
